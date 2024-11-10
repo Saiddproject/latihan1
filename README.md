@@ -68,3 +68,73 @@ Program menampilkan total keuntungan yang diperoleh setelah 8 bulan berjalan, da
     print(f"Total keuntungan selama 8 bulan adalah: Rp {keuntungan:,.2f}")
 
 # latihan3
+Saldo Awal:
+Program dimulai dengan saldo sebesar Rp 1.000.000.
+
+Menu Pilihan:
+Program menampilkan tiga opsi kepada pengguna:
+Tarik Uang: Pengguna dapat menarik sejumlah uang, selama saldo mencukupi.
+Cek Saldo: Pengguna dapat memeriksa saldo mereka.
+Keluar: Pengguna dapat memilih untuk keluar dari mesin ATM
+
+Proses:
+Tarik Uang: Jika pengguna memilih untuk menarik uang, program akan meminta jumlah uang yang ingin ditarik. Jika jumlah yang diminta lebih besar dari saldo yang ada, program akan memberikan peringatan bahwa saldo tidak cukup. Jika cukup, uang akan ditarik dan saldo akan dikurangi.
+Cek Saldo: Pengguna dapat memilih opsi ini untuk memeriksa saldo mereka.
+Keluar: Pengguna dapat memilih opsi ini untuk keluar dari mesin ATM, yang akan menghentikan program.
+
+Perulangan:
+Program menggunakan perulangan while yang terus berjalan hingga pengguna memilih untuk keluar. Setiap kali transaksi selesai, program kembali menampilkan menu pilihan.
+
+Output:
+Program akan menampilkan saldo saat ini setelah setiap transaksi, atau pesan kesalahan jika saldo tidak cukup untuk menarik uang
+
+    # Saldo awal pengguna (Rp 1.000.000)
+    saldo = 1000000  # Saldo awal Rp 1.000.000
+
+    # Menampilkan saldo awal pengguna
+    print("Selamat datang di mesin ATM!")
+    print(f"Saldo Anda saat ini: Rp {saldo:,.2f}")
+
+    # Program berjalan dalam loop hingga pengguna memilih untuk keluar
+    while True:
+        # Menampilkan menu transaksi
+        print("\nPilih transaksi:")
+        print("1. Tarik Uang")
+        print("2. Cek Saldo")
+        print("3. Keluar")
+        
+        # Meminta input pilihan transaksi dari pengguna
+        pilihan = input("Masukkan pilihan (1/2/3): ")
+
+        if pilihan == "1":
+            # Tarik uang
+            while True:
+                try:
+                    jumlah_tarikan = int(input("Masukkan jumlah uang yang ingin ditarik: Rp "))
+                    if jumlah_tarikan <= 0:
+                        print("Jumlah penarikan harus lebih besar dari 0. Coba lagi.")
+                        continue
+                    if jumlah_tarikan > saldo:
+                        # Mengecek apakah saldo cukup untuk penarikan
+                        print("Saldo Anda tidak cukup untuk melakukan penarikan.")
+                    else:
+                        # Mengurangi saldo dengan jumlah yang ditarik
+                        saldo -= jumlah_tarikan
+                        # Menampilkan informasi tentang penarikan dan saldo setelahnya
+                        print(f"Uang Rp {jumlah_tarikan:,.2f} berhasil ditarik. Sisa saldo: Rp {saldo:,.2f}")
+                    break
+                except ValueError:
+                    print("Input tidak valid! Harap masukkan angka yang valid.")
+        
+        elif pilihan == "2":
+            # Menampilkan saldo pengguna
+            print(f"Saldo Anda saat ini: Rp {saldo:,.2f}")
+        
+        elif pilihan == "3":
+            # Keluar dari program ATM
+            print("Terima kasih telah menggunakan mesin ATM. Sampai jumpa!")
+            break  # Keluar dari loop dan mengakhiri program
+        
+        else:
+            # Menangani pilihan yang tidak valid
+            print("Pilihan tidak valid. Silakan coba lagi.")
