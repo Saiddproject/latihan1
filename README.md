@@ -23,3 +23,48 @@ Output: Program akan menampilkan sejumlah bilangan acak yang lebih kecil dari 0.
             count += 1  # Menambah hitungan bilangan yang sudah ditampilkan
             
 # latihan2
+Modal Awal: 
+Program mulai dengan modal usaha sebesar 100 juta.
+
+Proses:
+Program menggunakan perulangan for untuk menghitung keuntungan bulan demi bulan selama 8 bulan.
+Keuntungan pada setiap bulan dihitung dengan persentase yang berbeda:
+Bulan 1 dan 2: Tidak ada keuntungan (0%).
+Bulan 3: Keuntungan 1% dari modal awal.
+Bulan 5: Keuntungan meningkat menjadi 5% dari modal awal.
+Bulan 8: Keuntungan menurun menjadi 3% dari modal awal.
+Bulan lainnya: Keuntungan tetap 1%.
+Keuntungan setiap bulan akan ditambahkan ke total keuntungan yang dihitung.
+
+Output:
+Program menampilkan total keuntungan yang diperoleh setelah 8 bulan berjalan, dalam format mata uang yang mudah dibaca
+    
+    # Modal awal usaha (dalam juta rupiah)
+    modal_awal = 100000000  # 100 juta
+    keuntungan = 0  # Inisialisasi total keuntungan
+     # Loop selama 8 bulan
+    for bulan in range(1, 9):
+        # Kondisi keuntungan berdasarkan bulan
+        if bulan == 1 or bulan == 2:
+            # Pada bulan 1 dan 2 tidak ada keuntungan
+            laba_bulan = 0
+        elif bulan == 3:
+            # Pada bulan 3, laba mulai 1% dari modal awal
+            laba_bulan = 0.01 * modal_awal
+        elif bulan == 5:
+            # Pada bulan 5, laba meningkat menjadi 5%
+            laba_bulan = 0.05 * modal_awal
+        elif bulan == 8:
+            # Pada bulan 8, laba menurun menjadi 3%
+            laba_bulan = 0.03 * modal_awal
+        else:
+            # Untuk bulan selain yang disebutkan, laba tetap 1%
+            laba_bulan = 0.01 * modal_awal
+        
+        # Menambahkan keuntungan bulan ini ke total keuntungan
+        keuntungan += laba_bulan  
+
+    # Menampilkan total keuntungan selama 8 bulan
+    print(f"Total keuntungan selama 8 bulan adalah: Rp {keuntungan:,.2f}")
+
+# latihan3
